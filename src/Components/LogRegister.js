@@ -25,6 +25,7 @@ export class LogRegister extends React.Component {
       surname: "",
       email: "",
       password: "",
+      token: "",
     };
   }
 
@@ -52,8 +53,16 @@ export class LogRegister extends React.Component {
       .then((res) => {
         // If sucessful
         if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-          console.log(localStorage.getItem("token"));
+          //storing the token
+          localStorage.setItem("token", res.token);
+          //storing the token
+          this.state.token = localStorage.getItem("token");
+          //alerting the user that they have been logged in successfully
+          alert("You have Logged in successfully");
+
+          window.location = "/home";
+        } else {
+          document.getElementById("loginError").hidden = false;
         }
       })
       .catch((err) => {
@@ -94,6 +103,7 @@ export class LogRegister extends React.Component {
       .then((res) => {
         console.log(res);
         console.log("User successfully registered");
+        res.send("User successfully registered");
       })
       .catch((err) => {
         console.log(err);
@@ -157,6 +167,7 @@ export class LogRegister extends React.Component {
           <Col>
             <div>
               <h2>Please Login Or Register</h2>
+              <h2>Status: {this.props.loggedInStatus}</h2>
               {/* create login form */}
               <form onSubmit={this.handleLoginSubmit}>
                 <h3>Login</h3>

@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
 const authToken = require("./authToken");
+const bcrypt = require("bcryptjs");
+//const validateToken = require("./validateToken");
 
 app.use(cors());
 app.use(function (req, res, next) {
@@ -153,23 +155,29 @@ app.post("/login", (req, res) => {
   LoginRegModel.findOne({ email: req.body.loginEmail }, (err, data) => {
     // If email is found in the database
     if (data) {
-      // If passwords match then:
-      if (req.body.loginPassword === data.password) {
+      // checks to see if passwrods match
+      const passwordIsValid = bcrypt.compareSync(
+        req.body.loginPassword,
+        data.password
+      );
+      if (passwordIsValid) {
+        alert("You have Logged in successfully");
+        console.log("LoggedIn");
+        // if (req.body.loginPassword === data.password) {
         // Generate token - send to the user
         res.json({
-          firstName: loginRegSchema.firstName,
-          token: authToken(loginRegSchema.email),
+          // firstName: loginRegSchema.firstName,
+          // token: authToken(loginRegSchema.email),
+          token: authToken(data),
         });
-        console.log("Successfully LoggedIn");
       } else {
-        // Otherwise the user is not logged in
-        res.send({ message: "Wrong credentials try again" });
-        console.log("Unsucessful login");
+        //the user is not logged in
+        res.send({ message: "Wrong details try again" });
       }
     } else {
       // If the email is not found in the database then the user is not registered
-      res.send("Not registered");
-      console.log("Unregistered");
+      res.send({ messsage: "Not registered" });
+      console.log("Not registered");
     }
   });
 });

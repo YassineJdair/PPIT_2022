@@ -21,6 +21,14 @@ import Nft from "./Components/Nft";
 import { About } from "./Components/about";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {},
+    };
+  }
   render() {
     return (
       <Router>
@@ -38,14 +46,23 @@ class App extends Component {
           </Navbar>
 
           <Route>
-            <Route path="/" component={Currency} exact />
+            <Route exact path="/" component={Currency} />
             <Route path="/home" component={Currency} exact />
             <Route path="/exchanges" component={Exchanges} exact />
             <Route path="/about" component={About} />
             <Route path="/add" component={Add} />
             <Route path="/view" component={View} />
-            {<Route path="/update" component={Update} />}
-            <Route path="/LogRegister" component={LogRegister} />
+            <Route path="/update" component={Update} />
+            <Route
+              exact
+              path={"/LogRegister"}
+              render={(props) => (
+                <LogRegister
+                  {...props}
+                  loggedInStatus={this.state.loggedInStatus}
+                />
+              )}
+            />
             <Route path="/nft" component={Nft} />
           </Route>
         </div>
