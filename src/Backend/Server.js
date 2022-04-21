@@ -1,4 +1,3 @@
-//const { authToken } = require("../Backend/authToken");
 const express = require("express");
 const app = express();
 const port = 4000;
@@ -6,9 +5,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
-const authToken = require("./authToken");
+//const authToken = require("./authToken");
 const bcrypt = require("bcryptjs");
-//const validateToken = require("./validateToken");
+
+const jwt = require("jsonwebtoken");
 
 app.use(cors());
 app.use(function (req, res, next) {
@@ -155,30 +155,59 @@ app.post("/login", (req, res) => {
   LoginRegModel.findOne({ email: req.body.loginEmail }, (err, data) => {
     // If email is found in the database
     if (data) {
+      /*
+      TODO: use hashed passwords
+
       // checks to see if passwrods match
       const passwordIsValid = bcrypt.compareSync(
         req.body.loginPassword,
         data.password
       );
       if (passwordIsValid) {
-        alert("You have Logged in successfully");
-        console.log("LoggedIn");
+
+      */
+      if (req.body.loginPassword.trim() === data.password.trim()) {
+        console.log("LoggedIn user: " + req.body.loginEmail);
         // if (req.body.loginPassword === data.password) {
         // Generate token - send to the user
-        res.json({
+
+        // Create token
+        var dataId = data._id;
+        const token = jwt.sign({ dataId }, "jwt_secret_password", {
+          expiresIn: "2h",
+        });
+
+        // save user token
+        data.token = token;
+
+        // return new user
+        res.status(201).json(data);
+
+        /*res.json({
           // firstName: loginRegSchema.firstName,
           // token: authToken(loginRegSchema.email),
           token: authToken(data),
-        });
+        });*/
       } else {
         //the user is not logged in
         res.send({ message: "Wrong details try again" });
       }
     } else {
       // If the email is not found in the database then the user is not registered
-      res.send({ messsage: "Not registered" });
+      //res.send({ me<h1>sssage: "Not registered" });
+      res.status(500).send("Not registered");
       console.log("Not registered");
     }
+  });
+});
+
+// post request to register new user
+app.get("/users", (req, res) => {
+  console.log("/users");
+  //checking the database
+  LoginRegModel.find((err, data) => {
+    res.json(data);
+    console.log(data);
   });
 });
 

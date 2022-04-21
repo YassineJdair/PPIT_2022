@@ -58,7 +58,7 @@ export class LogRegister extends React.Component {
           //storing the token
           this.state.token = localStorage.getItem("token");
           //alerting the user that they have been logged in successfully
-          alert("You have Logged in successfully");
+          window.alert("You have Logged in successfully");
 
           window.location = "/home";
         } else {
@@ -103,7 +103,7 @@ export class LogRegister extends React.Component {
       .then((res) => {
         console.log(res);
         console.log("User successfully registered");
-        res.send("User successfully registered");
+        window.alert("User successfully registered");
       })
       .catch((err) => {
         console.log(err);
