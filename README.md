@@ -1,3 +1,11 @@
+<h1 align="center">PPIT Project - Crponia</h1>
+
+This repository repository contains the project created for Professional Practice In IT.. \
+I have added a screenscast which can be found here [Screencast available here](http://somup.com/c3fUXkOCrg) \
+You can find any relelvant documents here: [Documentation available here](Documents/Cryptonia.pdf)
+
+![ScreenshotHome](Images/App CryptoCurrenciesPage.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
