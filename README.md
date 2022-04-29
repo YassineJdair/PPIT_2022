@@ -1,4 +1,4 @@
-<h1 align="center">PPIT Project - Crponia - G00377375</h1>
+<h1 align="center">PPIT Project - Crptonia - G00377375</h1>
 
 This repository repository contains the project created for Professional Practice In IT.. \
 I have added a screenscast which can be found here [Screencast available here](http://somup.com/c3fUXkOCrg) \
