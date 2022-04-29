@@ -1,78 +1,56 @@
-<h1 align="center">PPIT Project - Crponia</h1>
+<h1 align="center">PPIT Project - Crponia - G00377375</h1>
 
 This repository repository contains the project created for Professional Practice In IT.. \
 I have added a screenscast which can be found here [Screencast available here](http://somup.com/c3fUXkOCrg) \
-You can find any relelvant documents here: [Documentation available here](Documents/Cryptonia.pdf)
+You can find any relevant documents here: [Documentation available here](Documents/Cryptonia.pdf)
 
-![ScreenshotHome](Images/App CryptoCurrenciesPage.png)
+![Home Page](https://github.com/YassineJdair/PPIT_2022/blob/8046399a00080941ce60663a51d19bd613aa9605/Images/App%20CryptoCurrenciesPage.png)
+![Exchange Page](https://github.com/YassineJdair/PPIT_2022/blob/1f943755c441ee4f7a3168df2be6a0a0cfc87330/Images/image.png)
 
-# Getting Started with Create React App
+
+# What is Cryptonia
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Cryptonia is a price-tracking website for cryptoassets in the rapidly growing cryptocurrency space. It allows users to view/update/add/delete to their crypto portfolio. It shows a variety of crypto assets, which gives you live prices and marketcaps. Users can register and log into their accoutns to start adding to their portfolio. This wesbite was built using Mern Stack:
 
-In the project directory, you can run:
+<ul>
+  <li>MongoDB - document database</li>
+  <li>ExpressJS - Node.js web framework</li>
+  <li>ReactJS - a client-side JavaScript framework</li>
+  <li>NodeJS - the premier JavaScript web server</li>
+</ul>
 
-### `npm start`
+# SetUp
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Cloning the project & Installing PreRequisites
+To clone the Projetc you will need to have the following installed on your machine:
+<ul>
+  <li>Node</li>
+  <li>npm</li>
+</ul>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Create a new folder and open a command Pormpt in that location then run the following commands:
 
-### `npm test`
+```terminal
+$ git clone https://github.com/YassineJdair/PPIT_2022
+cd PPIT_2022
+$ npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Run the BackEnd
+```terminal
+$ cd Backend
+$ node server.js
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run FrontEnd
+```terminal
+$ npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Author
+[Yassine Jdair](https://github.com/YassineJdair)
